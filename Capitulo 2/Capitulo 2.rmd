@@ -1,16 +1,10 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-# Chapter 2
 
+# Chapter 2
 
 
 ## 1. Utilice la función de ayuda para explorar lo que la serie gold, woolyrnqy gasrepresentar.
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question1}
 library(fpp2)
 str(gold)
 str(woolyrnq)
@@ -43,7 +37,7 @@ print("¿Cuándo el oro (gold) alcanzó el valor máximo?")
 which.max(gold)
 print("¿Cuál fue el valor máximo del oro (gold) ? ")
 gold[which.max(gold)]
-```
+
 
 
 ## 2. Descargue el archivo tute1.csvdel sitio web del libro , ábralo en Excel (o alguna otra aplicación de hoja de cálculo) y revise su contenido. Debería encontrar cuatro columnas de información. Cada una de las columnas B a D contiene una serie trimestral, denominada Sales, AdBudget y GDP. Ventas contiene las ventas trimestrales de una pequeña empresa durante el período 1981-2005. AdBudget es el presupuesto publicitario y el PIB es el producto interno bruto. Todas las series se han ajustado por inflación.
@@ -51,7 +45,6 @@ gold[which.max(gold)]
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question2}
 
 # a.Puede leer los datos en R con el siguiente script:
 tute1 <- read.csv("tute1.csv", header=TRUE)
@@ -71,14 +64,14 @@ autoplot(mytimeseries, facets=TRUE)
 
 autoplot(mytimeseries)
 
-```
+
 
 
 
 ## 3.Descargue algunos datos minoristas australianos mensuales del sitio web del libro . Estos representan ventas minoristas en varias categorías para diferentes estados australianos y se almacenan en un archivo MS-Excel
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question3}
+
 
 # a. Puede leer los datos en R con el siguiente script:
 
@@ -98,11 +91,9 @@ gglagplot(myts, lags = 12)
 ggAcf(myts)
 
 
-```
 
 ## 4.  Crear gráficos de tiempo de la siguiente serie de tiempo: bicoal, chicken, dole, usdeaths, lynx, goog, writing, fancy, a10, h02.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question4}
 
 # - Úselo help()para conocer los datos de cada serie.
 
@@ -122,7 +113,7 @@ autoplot(goog) +
   ggtitle("Precios de cierre diarios de las acciones de Google Inc.") +
   xlab("Tiempo") +
   ylab("Precio(Unit: US$)")
-```
+
 
 
 
@@ -130,7 +121,7 @@ autoplot(goog) +
 ## 5. Utilice los ggseasonplot() y ggsubseriesplot()las funciones para explorar los patrones estacionales en las siguientes series de tiempo:
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question5}
+
 
 # - ¿Qué puedes decir sobre los patrones estacionales?
 # - ¿Puedes identificar algunos años inusuales?
@@ -153,12 +144,11 @@ ggsubseriesplot(h02)
 
 #  La cantidad mensual de corticosteroides disminuye anualmente en febrero
 
-```
 
 
 ## 6. Utilizar las funciones siguientes gráficos: autoplot(), ggseasonplot(), ggsubseriesplot(), gglagplot(), ggAcf()y explorar las características de las siguientes series de tiempo: hsales, usdeaths, bricksq, sunspotarea, gasoline.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question6}
+
 # - ¿Puedes detectar alguna estacionalidad, ciclicidad y tendencia?
 # - ¿Qué aprendes sobre la serie?
 
@@ -207,12 +197,11 @@ gglagplot(gasoline)
 ggAcf(gasoline, lag.max = 1000)
 # puede detectar la estacionalidad y la tendencia
 
-```
 
 
 ## 7. El arrivalsconjunto de datos comprende llegadas internacionales trimestrales (en miles) a Australia desde Japón, Nueva Zelanda, Reino Unido y Estados Unidos.
  
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question7}
+
 
 # ver estructura
 str(arrivals)
@@ -240,13 +229,12 @@ ggsubseriesplot(arrivals[, "US"])
 # Las llegadas de Nueva Zelanda son más altas en el tercer trimestre y más bajas en el primer trimestre.
 # Las llegadas de Reino Unido y EE. UU. Son bajas en el 2º y 3º trimestres y altas en el 1º y 4º trimestres.
 
-```
+
 
 
 ##8. Las siguientes gráficas de tiempo y gráficas de ACF corresponden a cuatro series de tiempo diferentes. Su tarea es hacer coincidir cada gráfico de tiempo en la primera fila con uno de los gráficos de ACF en la segunda fila.
 
 
-```{r}
 autoplot(cowtemp)+
   ggtitle("Daily temperature of cow.")
 acf(cowtemp)
@@ -261,15 +249,14 @@ acf(airpass)
 
 autoplot(mink)+ggtitle("Annual number of minks trapped in McKenzie river district of northwest Canada: 1848–1911.")
 acf(mink)
-```
+
 
 
 
 
 ## 9. Los pigs datos muestran el número total mensual de cerdos sacrificados en Victoria, Australia, desde enero de 1980 hasta agosto de 1995. Utilice mypigs <- window(pigs, start=1990)para seleccionar los datos a partir de 1990. Utilice autoploty ggAcfpara las mypigsseries y compárelas con los gráficos de ruido blanco de las Figuras 2.17 y 2.18 .
 
- 
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question9}
+
 
 mypigs <- window(pigs, start=1990)
 str(mypigs)
@@ -278,12 +265,10 @@ autoplot(mypigs)
 ggAcf(mypigs)
 # # puede encontrar que 3 valores de autocorrelación estaban fuera de los límites. Por lo tanto, mypigs probablemente no sea ruido blanco.
 
-``` 
+
  
 ## 10. djcontiene 292 días de negociación consecutivos del índice Dow Jones. Úselo ddj <- diff(dj)para calcular los cambios diarios en el índice. Parcela ddjy su ACF. ¿Los cambios en el índice Dow Jones parecen ruido blanco?
 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, Question10}
 
 ddj <- diff(dj)
 str(ddj)
@@ -293,5 +278,5 @@ ggAcf(ddj)
 
  #puede encontrar que sustancialmente menos del 5% de los valores de autocorrelación estaban fuera de los límites. Por tanto, ddj puede ser ruido blanco.
 
-```
+
 
